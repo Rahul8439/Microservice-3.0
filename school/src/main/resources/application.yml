@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: school
+  config:
+    import: "optional:configserver:http://localhost:8004"
+    
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always  
