@@ -1,0 +1,22 @@
+server:
+  port: 8000
+
+spring:  
+  cloud:
+    gateway:
+      routes:
+      - id: student
+        uri: lb://student
+        predicates:
+        - Path= /api/v1/student/**
+      - id: school
+        uri: lb://school
+        predicates:
+        - Path= /api/v1/school/**
+
+
+          
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8003/eureka/"
